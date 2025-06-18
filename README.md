@@ -8,7 +8,7 @@
   - [ ] Redis
   - [ ] Backend NestJS
   - [ ] Frontend Next.js
-- [ ] Criar `.env`
+- [ ] Create `.env`
 - [ ] Scripts for `dev:start`, `dev:db`, `dev:seed`
 
 ### Production Environment
