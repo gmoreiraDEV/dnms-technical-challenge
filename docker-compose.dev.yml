@@ -1,0 +1,69 @@
+version: '3.9'
+
+services:
+  backend:
+    build:
+      context: ./apps/back
+      dockerfile: Dockerfile.dev
+    container_name: zion-backend
+    ports:
+      - "${API_PORT}:3000"
+    volumes:
+      - ./apps/back:/app
+      - /app/node_modules
+    env_file:
+      - .env
+    command: npm run start:dev
+    depends_on:
+      - postgres
+      - redis
+    networks:
+      - zion-net
+
+  frontend:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile.dev
+    container_name: zion-frontend
+    ports:
+      - "${WEB_PORT}:3000"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    env_file:
+      - .env
+    command: npm run dev
+    depends_on:
+      - backend
+    networks:
+      - zion-net
+
+  postgres:
+    image: postgres:15
+    restart: always
+    container_name: zion-postgres
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASS}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - "${DB_PORT}:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - zion-net
+
+  redis:
+    image: redis:7
+    container_name: zion-redis
+    ports:
+      - "${REDIS_PORT}:6379"
+    networks:
+      - zion-net
+
+volumes:
+  pgdata:
+
+networks:
+  zion-net:
+    driver: bridge
