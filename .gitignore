@@ -1,13 +1,1 @@
-.env
-apps/frontend
-apps/*/node_modules
-apps/*/dist
-apps/*/build
-apps/*/coverage
-apps/*/logs
-apps/*/temp
-apps/*/public
-apps/*/src
-apps/*/test
-apps/*/test-results
 node_modules
