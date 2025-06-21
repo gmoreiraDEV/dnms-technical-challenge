@@ -1,0 +1,12 @@
+/apps/*/build/**
+/apps/*/coverage/**
+/apps/*/dist/**
+*.next
+*.json
+*.yml
+tmp
+dist
+*/dist
+/node_modules/**
+./package.json
+package-lock.json

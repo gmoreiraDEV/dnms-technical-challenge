@@ -3,13 +3,13 @@
 ## 🔧 Infrastructure
 
 ### Local Environment (Dev)
-- [ ] Config Docker Compose with:
-  - [ ] PostgreSQL
-  - [ ] Redis
-  - [ ] Backend NestJS
-  - [ ] Frontend Next.js
-- [ ] Create `.env`
-- [ ] Scripts for `dev:start`, `dev:db`, `dev:seed`
+- [x] Config Docker Compose with:
+  - [x] PostgreSQL
+  - [x] Redis
+  - [x] Backend NestJS
+  - [x] Frontend Next.js
+- [x] Create `.env`
+- [x] Scripts for `dev:start`, `dev:db`, `dev:seed`
 
 ### Production Environment
 - [ ] Choose provider (Railway, Vercel, Fly.io, Render ou VPS)
